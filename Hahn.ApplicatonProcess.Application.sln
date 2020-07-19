@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2020.Web", "Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.May2020.Web.csproj", "{B5E919F9-18EC-4FAB-A45A-6A424F10A25C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicatonProcess.May2020.Web", "Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.May2020.Web.csproj", "{B5E919F9-18EC-4FAB-A45A-6A424F10A25C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2020.Domain", "Hahn.ApplicatonProcess.May2020.Domain\Hahn.ApplicatonProcess.May2020.Domain.csproj", "{B2A2F395-7CA5-4BE2-88ED-FD495C1D8DA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicatonProcess.May2020.Domain", "Hahn.ApplicatonProcess.May2020.Domain\Hahn.ApplicatonProcess.May2020.Domain.csproj", "{B2A2F395-7CA5-4BE2-88ED-FD495C1D8DA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2020.Data", "Hahn.ApplicatonProcess.May2020.Data\Hahn.ApplicatonProcess.May2020.Data.csproj", "{734F2797-7E4A-44EE-8104-E497114D2B57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicatonProcess.May2020.Data", "Hahn.ApplicatonProcess.May2020.Data\Hahn.ApplicatonProcess.May2020.Data.csproj", "{734F2797-7E4A-44EE-8104-E497114D2B57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2020.Test", "Hahn.ApplicatonProcess.May2020.Test\Hahn.ApplicatonProcess.May2020.Test.csproj", "{5A22606F-F22E-4BD3-ACEC-3A1653E2D8E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.May2020.UintTest", "Hahn.ApplicatonProcess.May2020.UintTest\Hahn.ApplicatonProcess.May2020.UintTest.csproj", "{42E020B1-24B3-4B04-A93F-80DD2ABC7443}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{734F2797-7E4A-44EE-8104-E497114D2B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{734F2797-7E4A-44EE-8104-E497114D2B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{734F2797-7E4A-44EE-8104-E497114D2B57}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A22606F-F22E-4BD3-ACEC-3A1653E2D8E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A22606F-F22E-4BD3-ACEC-3A1653E2D8E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A22606F-F22E-4BD3-ACEC-3A1653E2D8E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A22606F-F22E-4BD3-ACEC-3A1653E2D8E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42E020B1-24B3-4B04-A93F-80DD2ABC7443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42E020B1-24B3-4B04-A93F-80DD2ABC7443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42E020B1-24B3-4B04-A93F-80DD2ABC7443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42E020B1-24B3-4B04-A93F-80DD2ABC7443}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -38,7 +38,7 @@ namespace Hahn.ApplicatonProcess.May2020.Web.Controllers
             try
             {
                 response = await this.applicantService.GetAllApplicants();
-                if (response.ResponseCode.Equals("00"))
+                if (response.ResponseCode.Equals(ResultCode.SUCCESS))
                 {
                     return Ok(response);
                 }
@@ -60,14 +60,14 @@ namespace Hahn.ApplicatonProcess.May2020.Web.Controllers
                 if (id > 0)
                 {
                     response = await this.applicantService.GetApplicant(id);
-                    if (response.ResponseCode.Equals("00"))
+                    if (response.ResponseCode.Equals(ResultCode.SUCCESS))
                     {
                         return Ok(response);
                     }
                 }
                 else
                 {
-                    response.ResponseCode = "100";
+                    response.ResponseCode = ResultCode.FAILED;
                     response.Description = "The id must be greater than zero(0).";
                 }
             }
@@ -86,7 +86,7 @@ namespace Hahn.ApplicatonProcess.May2020.Web.Controllers
             try
             {
                 response = await this.applicantService.CreateApplicant(applicant);
-                if (response.ResponseCode.Equals("00"))
+                if (response.ResponseCode.Equals(ResultCode.SUCCESS))
                 {
                     return Created($"{ this.configurationFile.HostUrl }api/Applicant/{ response.Result.ID.ToString() }", response);
                 }
@@ -107,7 +107,7 @@ namespace Hahn.ApplicatonProcess.May2020.Web.Controllers
             try
             {
                 response = await this.applicantService.UpdateApplicant(applicant);
-                if (response.ResponseCode.Equals("00"))
+                if (response.ResponseCode.Equals(ResultCode.SUCCESS))
                 {
                     return Ok(response);
                 }
@@ -127,7 +127,7 @@ namespace Hahn.ApplicatonProcess.May2020.Web.Controllers
             try
             {
                 response = await this.applicantService.RemoveApplicant(id);
-                if (response.ResponseCode.Equals("00"))
+                if (response.ResponseCode.Equals(ResultCode.SUCCESS))
                 {
                     return Ok(response);
                 }
@@ -153,20 +153,20 @@ namespace Hahn.ApplicatonProcess.May2020.Web.Controllers
                     countryResponse = await this.applicantService.ValidateCountry(countryName);
                     if (countryResponse != null && !string.IsNullOrEmpty(countryResponse.Name))
                     {
-                        response.ResponseCode = "00";
+                        response.ResponseCode = ResultCode.SUCCESS;
                         response.Description = "Successful";
                         return Ok(response);
                     }
                     else
                     {
-                        response.ResponseCode = "100";
+                        response.ResponseCode = ResultCode.FAILED;
                         response.Description = "The id must be greater than zero(0).";
                         return Ok(response);
                     }
                 }
                 else
                 {
-                    response.ResponseCode = "100";
+                    response.ResponseCode = ResultCode.FAILED;
                     response.Description = "The id must be greater than zero(0).";
                 }
             }
@@ -174,5 +174,7 @@ namespace Hahn.ApplicatonProcess.May2020.Web.Controllers
 
             return BadRequest(response);
         }
+
+       
     }
 }

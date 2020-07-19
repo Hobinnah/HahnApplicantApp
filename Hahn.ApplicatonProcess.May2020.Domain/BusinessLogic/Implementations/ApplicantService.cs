@@ -29,15 +29,15 @@ namespace Hahn.ApplicatonProcess.May2020.Domain.BusinessLogic.Implementation
             Response<Applicant> response = new Response<Applicant>();
 
             newApplicant = await this.applicantRepository.GetByID(ID);
-            if (newApplicant != null && newApplicant.ID > 0)
+            if (newApplicant != null)
             {
-                response.ResponseCode = "00";
+                response.ResponseCode = ResultCode.SUCCESS;
                 response.Description = "Successful";
                 response.Result = newApplicant;
                 return response;
             }
 
-            response.ResponseCode = "100";
+            response.ResponseCode = ResultCode.FAILED;
             response.Description = "Could not retrieve applicant.";
             return response;
         }
@@ -48,15 +48,15 @@ namespace Hahn.ApplicatonProcess.May2020.Domain.BusinessLogic.Implementation
             Response<IEnumerable<Applicant>> response = new Response<IEnumerable<Applicant>>();
 
             applicants = await this.applicantRepository.GetAll();
-            if (applicants != null && applicants.Any())
+            if (applicants != null)
             {
-                response.ResponseCode = "00";
+                response.ResponseCode = ResultCode.SUCCESS;
                 response.Description = "Successful";
                 response.Result = applicants;
                 return response;
             }
 
-            response.ResponseCode = "100";
+            response.ResponseCode = ResultCode.FAILED;
             response.Description = "Could not retrieve applicants.";
             return response;
         }
@@ -65,6 +65,11 @@ namespace Hahn.ApplicatonProcess.May2020.Domain.BusinessLogic.Implementation
         {
             Applicant newApplicant = new Applicant();
             Response<Applicant> response = new Response<Applicant>();
+
+            if (applicant == null)
+            {
+                throw new ArgumentNullException(nameof(applicant));
+            }
 
             CountryResponse countryResponse = await ValidateCountry(applicant.CountryOfOrigin);
 
@@ -75,14 +80,14 @@ namespace Hahn.ApplicatonProcess.May2020.Domain.BusinessLogic.Implementation
 
                 if (newApplicant != null && newApplicant.ID > 0)
                 {
-                    response.ResponseCode = "00";
+                    response.ResponseCode = ResultCode.SUCCESS;
                     response.Description = "Successful";
                     response.Result = newApplicant;
                     return response;
                 }
             }
 
-            response.ResponseCode = "100";
+            response.ResponseCode = ResultCode.FAILED;
             response.Description = "Could not create applicant.";
             return response;
         }
@@ -101,7 +106,7 @@ namespace Hahn.ApplicatonProcess.May2020.Domain.BusinessLogic.Implementation
 
                 if (newApplicant != null && newApplicant.ID > 0)
                 {
-                    response.ResponseCode = "00";
+                    response.ResponseCode = ResultCode.SUCCESS;
                     response.Description = "Successful";
                     response.Result = newApplicant;
                     return response;
@@ -109,12 +114,12 @@ namespace Hahn.ApplicatonProcess.May2020.Domain.BusinessLogic.Implementation
             }
             else
             {
-                response.ResponseCode = "100";
+                response.ResponseCode = ResultCode.FAILED;
                 response.Description = "The supplied country could not be validated.";
                 return response;
             }
 
-            response.ResponseCode = "100";
+            response.ResponseCode = ResultCode.FAILED;
             response.Description = "Could not update applicant.";
             return response;
         }
@@ -128,7 +133,7 @@ namespace Hahn.ApplicatonProcess.May2020.Domain.BusinessLogic.Implementation
             await this.applicantRepository.Delete(applicant);
             await this.applicantRepository.Save();
 
-            response.ResponseCode = "00";
+            response.ResponseCode = ResultCode.SUCCESS;
             response.Description = "Successful";
             return response;
         }

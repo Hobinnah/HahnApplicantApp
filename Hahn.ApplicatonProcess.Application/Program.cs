@@ -1,18 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Hahn.ApplicatonProcess.May2020.Data;
 using Hahn.ApplicatonProcess.May2020.Domain;
-using Hahn.ApplicatonProcess.May2020.Web.Models;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Serilog;
+using System.IO;
 
 namespace Hahn.ApplicatonProcess.Application
 {
@@ -29,14 +23,14 @@ namespace Hahn.ApplicatonProcess.Application
                         .AddEnvironmentVariables()
                         .Build();
 
-            
+
             // SeriLog
             Log.Logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(configuration)
                 .CreateLogger();
 
             Log.Information("Hello Serlog");
-           
+
 
             var host = CreateHostBuilder(args).Build();
 
